@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    background-color: floralwhite;
+}
+
+h1 {
+    text-align: center;
+    background-color: lightpink;
+    border: lightgreen dotted 10px;
+    border-radius: 15px;
+    margin: 50px 280px 50px 280px;
+    color: floralwhite;
+}
+
+.gamestats {
+    text-align: center;
+    background-color: lightgreen;
+    border: lightpink solid 5px;
+    border-radius: 10px;
+    margin: 0px 800px 0px 300px;
+    padding-bottom: 15px;
+}
+
+.gamestats p {
+    background-color: lightpink;
+    border: lightpink solid 1px;
+    border-radius: 5px;
+    color: floralwhite;
+    font-size: x-large;
+    
+}
+
+.gamestats img {
+    width: 50px;
+    height: 60px;
+}
+
+.slots {
+    margin-left: 325px;
+}
+
+.slots img {
+    width: 120px; 
+    height: 80px;
+}
+
+.prizes {
+    margin-right: 300px;
+    background-color: lightgreen;
+    border: lightpink solid 5px;
+    border-radius: 10px;
+    float: right;
+    position: relative;
+    bottom: 420px;
+}
+
+.prizes div {
+    border: lightpink solid 3px;
+}
+
+#playbtn {
+    background-color: lightgreen;
+    border: lightpink solid 4px;
+    border-radius: 5px;
+    color: floralwhite;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 32px;
+    margin-left: 800px;
+    position: absolute;
+    top: 480px;
+}
