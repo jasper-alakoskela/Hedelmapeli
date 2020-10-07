@@ -12,12 +12,12 @@
     <h1>Hedelmäpeli</h1>
 
     <div class="gamestats">
-        <p><b>Rahaa: 50€</b></p>
-        <p><b>Panos: 1€</b></p>
+        <p><b>Rahaa:<span id="money">50</span>€</b></p>
+        <p><b>Panos:<span id="bet">1</span>€</b></p>
         <br>
-        <button><a href="#" onclick=""><img src="img/euro.png"></a><br><span>0,50€</span></button>
-        <button><a href="#" onclick=""><img src="img/euro.png"></a><br><span>1€</span></button>
-        <button><a href="#" onclick=""><img src="img/euro.png"></a><br><span>5€</span></button>
+        <button id="0.5"><a href="#" onclick="chooseBet()"><img src="img/euro.png"></a><br><span>0,50€</span></button>
+        <button id="1"><a href="#" onclick="chooseBet()"><img src="img/euro.png"></a><br><span>1€</span></button>
+        <button id="2"><a href="#" onclick="chooseBet()"><img src="img/euro.png"></a><br><span>2€</span></button>
     </div>
     <br>
     <div class="slots">
