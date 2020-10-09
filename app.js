@@ -8,15 +8,15 @@ let lock1 = false;
 let lock2 = false;
 let lock3 = false;
 
-document.title = money + " Pistettä";
-
 function spin() {
     if (bet > money) {
         console.log("game over");
     }
 
     money = money - bet
-    document.getElementById("money").innerHTML = money;
+    document.getElementById("moneyText").innerHTML = money;
+
+    document.title = money + "€";
 
     if (lock1 == true || lock2 == true || lock3 == true) {
         lukitseminen = true;
@@ -116,14 +116,54 @@ function lockingImg(slot_nro) {
                 lock3 = true;
                 document.getElementById("slot3").src = "img/negative.png";
             }
-            break;
     }
 }
 
 function chooseBet() {
 
-    const smallBet = document.getElementById("small");
-    const mediumBet = document.getElementById("medium");
+    let smallBet = document.getElementById("small");
+    let mediumBet = document.getElementById("medium");
+    let largeBet =  document.getElementById("large");
+
+    smallBet = 0.50;
+    mediumBet = 1;
+    largeBet = 2;
+
+    if(bet == smallBet){
+        document.getElementById("betText").innerHTML = 0.50;
+
+        document.getElementById("2apple").innerHTML = "1";
+        document.getElementById("3apple").innerHTML = "2";
+        document.getElementById("2cherry").innerHTML = "2";
+        document.getElementById("3cherry").innerHTML = "3";
+        document.getElementById("1watermelon").innerHTML = "1";
+        document.getElementById("2watermelon").innerHTML = "3";
+        document.getElementById("3watermelon").innerHTML = "5";
+    }
+
+    else if(bet == mediumBet){
+        document.getElementById("betText").innerHTML = 1;
+
+        document.getElementById("2apple").innerHTML = "2";
+        document.getElementById("3apple").innerHTML = "3";
+        document.getElementById("2cherry").innerHTML = "3";
+        document.getElementById("3cherry").innerHTML = "5";
+        document.getElementById("1watermelon").innerHTML = "2";
+        document.getElementById("2watermelon").innerHTML = "5";
+        document.getElementById("3watermelon").innerHTML = "8";
+    }
+
+    else{
+        document.getElementById("betText").innerHTML = 2;
+
+        document.getElementById("2apple").innerHTML = "3";
+        document.getElementById("3apple").innerHTML = "5";
+        document.getElementById("2cherry").innerHTML = "5";
+        document.getElementById("3cherry").innerHTML = "8";
+        document.getElementById("1watermelon").innerHTML = "3";
+        document.getElementById("2watermelon").innerHTML = "8";
+        document.getElementById("3watermelon").innerHTML = "10";
+    }
 
     const slot1 = document.getElementById("slot1").src;
     const slot2 = document.getElementById("slot2").src;
@@ -131,15 +171,15 @@ function chooseBet() {
 
 
     if (slot1 == slot2 && slot2 == slot3) {
-        let file_name = slot1.split('/').pop();
+       /*tämä pitää selvittää*/  let file_name = slot1.split('/').pop();
         switch (file_name) {
 
             case "img/apple.png":
-                if (bet == smallBet) {
-                    money = money + 1;
-                }
-                else if (bet == mediumBet) {
+                if (bet == 0.50) {
                     money = money + 2;
+                }
+                else if (bet == 1) {
+                    money = money + 3;
                 }
                 else {
                     money = money + 4;
@@ -147,10 +187,10 @@ function chooseBet() {
                 break;
 
             case "img/cherry.png":
-                if (bet == smallBet) {
-                    money = money + 2;
+                if (bet == 0.50) {
+                    money = money + 3;
                 }
-                else if (bet == mediumBet) {
+                else if (bet == 1) {
                     money = money + 5;
                 }
                 else {
@@ -159,14 +199,14 @@ function chooseBet() {
                 break;
 
             case "img/watermelon.png":
-                if (bet == smallBet) {
+                if (bet == 0.50) {
+                    money = money + 5;
+                }
+                else if (bet == 1) {
                     money = money + 8;
                 }
-                else if (bet == mediumBet) {
-                    money = money + 10;
-                }
                 else {
-                    money = money + 12;
+                    money = money + 10;
                 }
                 break;
         }
@@ -177,22 +217,10 @@ function chooseBet() {
         switch (file_name) {
 
             case "img/apple.png":
-                if (bet == smallBet) {
-                    money = money + 0.50;
-                }
-                else if (bet == mediumBet) {
+                if (bet == 0.50) {
                     money = money + 1;
                 }
-                else {
-                    money = money + 2;
-                }
-                break;
-
-            case "img/cherry.png":
-                if (bet == smallBet) {
-                    money = money + 1;
-                }
-                else if (bet == mediumBet) {
+                else if (bet == 1) {
                     money = money + 2;
                 }
                 else {
@@ -200,11 +228,23 @@ function chooseBet() {
                 }
                 break;
 
-            case "img/watermelon.png":
-                if (bet == smallBet) {
+            case "img/cherry.png":
+                if (bet == 0.50) {
                     money = money + 2;
                 }
-                else if (bet == mediumBet) {
+                else if (bet == 1) {
+                    money = money + 3;
+                }
+                else {
+                    money = money + 4;
+                }
+                break;
+
+            case "img/watermelon.png":
+                if (bet == 0.50) {
+                    money = money + 3;
+                }
+                else if (bet == 1) {
                     money = money + 5;
                 }
                 else {
@@ -219,14 +259,14 @@ function chooseBet() {
         switch (file_name) {
 
             case "img/watermelon.png":
-                if (bet == smallBet) {
-                    money = money + 0.50;
-                }
-                else if (bet == mediumBet) {
+                if (bet == 0.50) {
                     money = money + 1;
                 }
-                else {
+                else if (bet == 1) {
                     money = money + 2;
+                }
+                else {
+                    money = money + 3;
                 }
                 break;
 

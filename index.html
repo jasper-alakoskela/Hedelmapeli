@@ -12,12 +12,12 @@
     <h1>Hedelmäpeli</h1>
 
     <div class="gamestats">
-        <p><b>Rahaa:<span id="money">50</span>€</b></p>
-        <p><b>Panos:<span id="bet">1</span>€</b></p>
+        <p><b>Rahaa:<span id="moneyText">50</span>€</b></p>
+        <p><b>Panos:<span id="betText">1</span>€</b></p>
         <br>
-        <button id="small"><a href="#" onclick="chooseBet()"><img src="img/euro.png"></a><br><span>0,50€</span></button>
-        <button id="medium"><a href="#" onclick="chooseBet()"><img src="img/euro.png"></a><br><span>1€</span></button>
-        <button id="large"><a href="#" onclick="chooseBet()"><img src="img/euro.png"></a><br><span>2€</span></button>
+        <button><a href="#" id="small" onclick="chooseBet()"><img src="img/euro.png"></a><br><span>0,50€</span></button>
+        <button><a href="#" id="medium" onclick="chooseBet()"><img src="img/euro.png"></a><br><span>1€</span></button>
+        <button><a href="#" id="large" onclick="chooseBet()"><img src="img/euro.png"></a><br><span>2€</span></button>
     </div>
     <br>
     <div class="slots">
@@ -34,32 +34,32 @@
     <div class="prizes">
         <div class="2apple"><img src="img/apple.png" width="70px" height="50px"><img src="img/apple.png" width="70px"
                 height="50px"> <img src="img/question-mark.png" width="70px" height="50px"> <button><img
-                    src="img/euro.png" width="30px" height="40px"><br><span>1</span></button>
+                    src="img/euro.png" width="30px" height="40px"><br><span id="2apple">2</span></button>
         </div>
         <div class="3apple"><img src="img/apple.png" width="70px" height="50px"><img src="img/apple.png" width="70px"
                 height="50px"><img src="img/apple.png" width="70px" height="50px"> <button><img src="img/euro.png"
-                    width="30px" height="40px"><br><span>2</span></button></div>
+                    width="30px" height="40px"><br><span id="3apple">3</span></button></div>
 
         <div class="2cherry"><img src="img/cherry.png" width="70px" height="50px"><img src="img/cherry.png" width="70px"
                 height="50px"><img src="img/question-mark.png" width="70px" height="50px"> <button><img
-                    src="img/euro.png" width="30px" height="40px"><br><span>2</span></button></div>
+                    src="img/euro.png" width="30px" height="40px"><br><span id="2cherry">3</span></button></div>
 
         <div class="3cherry"><img src="img/cherry.png" width="70px" height="50px"><img src="img/cherry.png" width="70px"
                 height="50px"><img src="img/cherry.png" width="70px" height="50px"><button><img src="img/euro.png"
-                    width="30px" height="40px"><br><span>5</span></button></div>
+                    width="30px" height="40px"><br><span id="3cherry">5</span></button></div>
 
         <div class="1watermelon"><img src="img/watermelon.png" width="70px" height="50px"><img
                 src="img/question-mark.png" width="70px" height="50px"><img src="img/question-mark.png" width="70px"
-                height="50px"> <button><img src="img/euro.png" width="30px" height="40px"><br><span>1</span></button>
+                height="50px"> <button><img src="img/euro.png" width="30px" height="40px"><br><span id="1watermelon">2</span></button>
         </div>
 
         <div class="2watermelon"><img src="img/watermelon.png" width="70px" height="50px"><img src="img/watermelon.png"
                 width="70px" height="50px"><img src="img/question-mark.png" width="70px" height="50px"> <button><img
-                    src="img/euro.png" width="30px" height="40px"><br><span>5</span></button></div>
+                    src="img/euro.png" width="30px" height="40px"><br><span id="2watermelon">5</span></button></div>
 
         <div class="3watermelon"><img src="img/watermelon.png" width="70px" height="50px"><img src="img/watermelon.png"
                 width="70px" height="50px"><img src="img/watermelon.png" width="70px" height="50px"> <button><img
-                    src="img/euro.png" width="30px" height="40px"><br><span>10</span></button></div>
+                    src="img/euro.png" width="30px" height="40px"><br><span id="3watermelon">8</span></button></div>
     </div>
 
     <button id="playbtn" onclick="spin()">Pelaa</button>
