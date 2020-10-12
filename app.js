@@ -75,7 +75,7 @@ function changeImage(slot) {
             break;
         case 3:
             image = "img/watermelon.png";
-
+            break;
     }
 
     document.getElementById(slot).src = image;
@@ -116,6 +116,7 @@ function lockingImg(slot_nro) {
                 lock3 = true;
                 document.getElementById("slot3").src = "img/negative.png";
             }
+            break;
     }
 }
 
@@ -123,46 +124,32 @@ function chooseBet() {
 
     let smallBet = document.getElementById("small");
     let mediumBet = document.getElementById("medium");
-    let largeBet =  document.getElementById("large");
+    let largeBet = document.getElementById("large");
 
     smallBet = 0.50;
     mediumBet = 1;
     largeBet = 2;
 
-    if(bet == smallBet){
+    let smallBetArray = [1, 2, 2, 3, 1, 3, 5];
+    let mediumBetArray = [2, 3, 3, 5, 2, 5, 8];
+    let largeBetArray = [3, 5, 5, 8, 3, 8, 10];
+
+    if (bet == smallBet) {
         document.getElementById("betText").innerHTML = 0.50;
+        document.querySelectorAll(".prizes span").innerHTML = smallBetArray;
 
-        document.getElementById("2apple").innerHTML = "1";
-        document.getElementById("3apple").innerHTML = "2";
-        document.getElementById("2cherry").innerHTML = "2";
-        document.getElementById("3cherry").innerHTML = "3";
-        document.getElementById("1watermelon").innerHTML = "1";
-        document.getElementById("2watermelon").innerHTML = "3";
-        document.getElementById("3watermelon").innerHTML = "5";
     }
 
-    else if(bet == mediumBet){
+    else if (bet == mediumBet) {
         document.getElementById("betText").innerHTML = 1;
+        document.querySelectorAll(".prizes span").innerHTML = mediumBetArray;
 
-        document.getElementById("2apple").innerHTML = "2";
-        document.getElementById("3apple").innerHTML = "3";
-        document.getElementById("2cherry").innerHTML = "3";
-        document.getElementById("3cherry").innerHTML = "5";
-        document.getElementById("1watermelon").innerHTML = "2";
-        document.getElementById("2watermelon").innerHTML = "5";
-        document.getElementById("3watermelon").innerHTML = "8";
     }
 
-    else{
+    else {
         document.getElementById("betText").innerHTML = 2;
+        document.querySelectorAll(".prizes span").innerHTML = largeBetArray;
 
-        document.getElementById("2apple").innerHTML = "3";
-        document.getElementById("3apple").innerHTML = "5";
-        document.getElementById("2cherry").innerHTML = "5";
-        document.getElementById("3cherry").innerHTML = "8";
-        document.getElementById("1watermelon").innerHTML = "3";
-        document.getElementById("2watermelon").innerHTML = "8";
-        document.getElementById("3watermelon").innerHTML = "10";
     }
 
     const slot1 = document.getElementById("slot1").src;
@@ -172,6 +159,7 @@ function chooseBet() {
 
     if (slot1 == slot2 && slot2 == slot3) {
        /*tämä pitää selvittää*/  let file_name = slot1.split('/').pop();
+        console.log("voitto");
         switch (file_name) {
 
             case "img/apple.png":
