@@ -24,7 +24,6 @@ function spin() {
         lukitseminen = false;
     }
 
-
     if (lock1 == false) {
         changeImage("slot1");
     }
@@ -35,27 +34,28 @@ function spin() {
         changeImage("slot3");
     }
 
-    chooseBet();
+    checkWin();
+
     lock1 = false;
     lock2 = false;
     lock3 = false;
 
     if (lukitseminen == false) {
-        document.getElementById("slot1").src = "img/apple.png";
-        document.getElementById("slot1").disabled = false;
-        document.getElementById("slot2").src = "img/cherry.png";
-        document.getElementById("slot2").disabled = false;
-        document.getElementById("slot3").src = "img/watermelon.png";
-        document.getElementById("slot3").disabled = false;
+        document.getElementById("lockbtn1").src = "img/lock.png";
+        document.getElementById("lockbtn1").disabled = false;
+        document.getElementById("lockbtn2").src = "img/lock.png";
+        document.getElementById("lockbtn2").disabled = false;
+        document.getElementById("lockbtn3").src = "img/lock.png";
+        document.getElementById("lockbtn3").disabled = false;
 
     }
     else {
-        document.getElementById("slot1").src = "img/negative.png";
-        document.getElementById("slot1").disabled = true;
-        document.getElementById("slot2").src = "img/negative.png";
-        document.getElementById("slot2").disabled = true;
-        document.getElementById("slot3").src = "img/negative.png";
-        document.getElementById("slot3").disabled = true;
+        document.getElementById("lockbtn1").src = "img/lockerr.png";
+        document.getElementById("lockbtn1").disabled = true;
+        document.getElementById("lockbtn2").src = "img/lockerr.png";
+        document.getElementById("lockbtn2").disabled = true;
+        document.getElementById("lockbtn3").src = "img/lockerr.png";
+        document.getElementById("lockbtn3").disabled = true;
 
     }
 }
@@ -88,40 +88,39 @@ function lockingImg(slot_nro) {
         case 1:
             if (lock1 == true) {
                 lock1 = false;
-                document.getElementById("slot1").src = "img/apple.png";
+                document.getElementById("slot1").src = "img/lock.png";
             }
             else {
                 lock1 = true;
-                document.getElementById("slot1").src = "img/negative.png";
+                document.getElementById("slot1").src = "img/locked.png";
             }
             break;
 
         case 2:
             if (lock2 == true) {
                 lock2 = false;
-                document.getElementById("slot2").src = "img/cherry.png";
+                document.getElementById("slot2").src = "img/lock.png";
             }
             else {
                 lock2 = true;
-                document.getElementById("slot2").src = "img/negative.png";
+                document.getElementById("slot2").src = "img/locked.png";
             }
             break;
 
         case 3:
             if (lock3 == true) {
                 lock3 = false;
-                document.getElementById("slot3").src = "img/watermelon.png";
+                document.getElementById("slot3").src = "img/lock.png";
             }
             else {
                 lock3 = true;
-                document.getElementById("slot3").src = "img/negative.png";
+                document.getElementById("slot3").src = "img/locked.png";
             }
             break;
     }
 }
 
 function chooseBet() {
-
     let smallBet = document.getElementById("small");
     let mediumBet = document.getElementById("medium");
     let largeBet = document.getElementById("large");
@@ -151,6 +150,9 @@ function chooseBet() {
         document.querySelectorAll(".prizes span").innerHTML = largeBetArray;
 
     }
+}
+
+function checkWin() {
 
     const slot1 = document.getElementById("slot1").src;
     const slot2 = document.getElementById("slot2").src;
@@ -158,9 +160,9 @@ function chooseBet() {
 
 
     if (slot1 == slot2 && slot2 == slot3) {
-       /*tämä pitää selvittää*/  let file_name = slot1.split('/').pop();
+        let fileName = slot1.split('/').pop();
         console.log("voitto");
-        switch (file_name) {
+        switch (fileName) {
 
             case "img/apple.png":
                 if (bet == 0.50) {
@@ -201,8 +203,9 @@ function chooseBet() {
     }
 
     if (slot1 == slot2 && slot2 != slot3) {
-        let file_name = slot1.split('/').pop();
-        switch (file_name) {
+        let fileName = slot1.split('/').pop();
+        console.log("voitto");
+        switch (fileName) {
 
             case "img/apple.png":
                 if (bet == 0.50) {
@@ -243,8 +246,9 @@ function chooseBet() {
     }
 
     if (slot1 != slot2 && slot2 != slot3) {
-        let file_name = slot1.split('/').pop();
-        switch (file_name) {
+        let fileName = slot1.split('/').pop();
+        console.log("voitto");
+        switch (fileName) {
 
             case "img/watermelon.png":
                 if (bet == 0.50) {
