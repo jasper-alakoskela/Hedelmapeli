@@ -8,20 +8,28 @@ let lock1 = false;
 let lock2 = false;
 let lock3 = false;
 
+let win = document.getElementsByClassName("win");
+
+win.onclick = function () {
+    win.style.display = "none";
+}
+
 function spin() {
     if (bet > money) {
+        modal.style.display = "block";
+        document.getElementsByClassName("win") = document.getElementsByClassName("lose");
+        document.getElementById("playbtn").disabled = true;
         console.log("game over");
     }
 
     money = money - bet
     document.getElementById("moneyText").innerHTML = money;
-
     document.title = money + "€";
 
     if (lock1 == true || lock2 == true || lock3 == true) {
-        lukitseminen = true;
+        locking = true;
     } else {
-        lukitseminen = false;
+        locking = false;
     }
 
     if (lock1 == false) {
@@ -40,7 +48,7 @@ function spin() {
     lock2 = false;
     lock3 = false;
 
-    if (lukitseminen == false) {
+    if (locking == false) {
         document.getElementById("lockbtn1").src = "img/lock.png";
         document.getElementById("lockbtn1").disabled = false;
         document.getElementById("lockbtn2").src = "img/lock.png";
@@ -82,9 +90,9 @@ function changeImage(slot) {
 
 }
 
-function lockingImg(slot_nro) {
+function lockingImg(slotNro) {
 
-    switch (slot_nro) {
+    switch (slotNro) {
         case 1:
             if (lock1 == true) {
                 lock1 = false;
@@ -120,26 +128,21 @@ function lockingImg(slot_nro) {
     }
 }
 
-function chooseBet() {
-    let smallBet = document.getElementById("small");
-    let mediumBet = document.getElementById("medium");
-    let largeBet = document.getElementById("large");
+function chooseBet(x) {
 
-    smallBet = 0.50;
-    mediumBet = 1;
-    largeBet = 2;
+    bet = x;
 
     let smallBetArray = [1, 2, 2, 3, 1, 3, 5];
     let mediumBetArray = [2, 3, 3, 5, 2, 5, 8];
     let largeBetArray = [3, 5, 5, 8, 3, 8, 10];
 
-    if (bet == smallBet) {
+    if (x == 0.50) {
         document.getElementById("betText").innerHTML = 0.50;
         document.querySelectorAll(".prizes span").innerHTML = smallBetArray;
 
     }
 
-    else if (bet == mediumBet) {
+    else if (x == 1) {
         document.getElementById("betText").innerHTML = 1;
         document.querySelectorAll(".prizes span").innerHTML = mediumBetArray;
 

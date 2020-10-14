@@ -85,3 +85,27 @@ h1 {
     top: 485px;
     left: 50px;
 }
+
+.win {
+    z-index: 1;
+    top: 200px;
+    left: 850px;
+    display:none;
+    position: fixed;
+    background-color: lightgreen;
+    border: lightpink 10px double;
+    border-radius: 5px;
+    color: floralwhite;
+}
+
+.lose {
+    z-index: 1;
+    top: 200px;
+    left: 850px;
+    display:none;
+    position: fixed;
+    background-color: lightpink;
+    border: lightgreen 10px double;
+    border-radius: 5px;
+    color: floralwhite;
+}
