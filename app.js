@@ -1,5 +1,4 @@
-
-let money = 50;
+let money = 30;
 let bet = 1;
 
 let locking = false;
@@ -16,8 +15,8 @@ win.onclick = function () {
 
 function spin() {
     if (bet > money) {
-        modal.style.display = "block";
-        document.getElementsByClassName("win") = document.getElementsByClassName("lose");
+        win.style.display = "block";
+        document.getElementsByClassName("win").innerHTML = document.getElementsByClassName("lose");
         document.getElementById("playbtn").disabled = true;
         console.log("game over");
     }
@@ -96,33 +95,33 @@ function lockingImg(slotNro) {
         case 1:
             if (lock1 == true) {
                 lock1 = false;
-                document.getElementById("slot1").src = "img/lock.png";
+                document.getElementById("lockbtn1").src = "img/lock.png";
             }
             else {
                 lock1 = true;
-                document.getElementById("slot1").src = "img/locked.png";
+                document.getElementById("lockbtn1").src = "img/locked.png";
             }
             break;
 
         case 2:
             if (lock2 == true) {
                 lock2 = false;
-                document.getElementById("slot2").src = "img/lock.png";
+                document.getElementById("lockbtn2").src = "img/lock.png";
             }
             else {
                 lock2 = true;
-                document.getElementById("slot2").src = "img/locked.png";
+                document.getElementById("lockbtn2").src = "img/locked.png";
             }
             break;
 
         case 3:
             if (lock3 == true) {
                 lock3 = false;
-                document.getElementById("slot3").src = "img/lock.png";
+                document.getElementById("lockbtn3").src = "img/lock.png";
             }
             else {
                 lock3 = true;
-                document.getElementById("slot3").src = "img/locked.png";
+                document.getElementById("lockbtn3").src = "img/locked.png";
             }
             break;
     }
@@ -132,26 +131,37 @@ function chooseBet(x) {
 
     bet = x;
 
-    let smallBetArray = [1, 2, 2, 3, 1, 3, 5];
-    let mediumBetArray = [2, 3, 3, 5, 2, 5, 8];
-    let largeBetArray = [3, 5, 5, 8, 3, 8, 10];
-
     if (x == 0.50) {
         document.getElementById("betText").innerHTML = 0.50;
-        document.querySelectorAll(".prizes span").innerHTML = smallBetArray;
 
+        document.getElementById("2apple").innerHTML = 1;
+        document.getElementById("3apple").innerHTML = 2;
+        document.getElementById("2cherry").innerHTML = 2;
+        document.getElementById("3cherry").innerHTML = 3;
+        document.getElementById("2watermelon").innerHTML = 3;
+        document.getElementById("3watermelon").innerHTML = 5;
     }
 
     else if (x == 1) {
         document.getElementById("betText").innerHTML = 1;
-        document.querySelectorAll(".prizes span").innerHTML = mediumBetArray;
 
+        document.getElementById("2apple").innerHTML = 2;
+        document.getElementById("3apple").innerHTML = 3;
+        document.getElementById("2cherry").innerHTML = 3;
+        document.getElementById("3cherry").innerHTML = 5;
+        document.getElementById("2watermelon").innerHTML = 5;
+        document.getElementById("3watermelon").innerHTML = 8;
     }
 
     else {
         document.getElementById("betText").innerHTML = 2;
-        document.querySelectorAll(".prizes span").innerHTML = largeBetArray;
 
+        document.getElementById("2apple").innerHTML = 3;
+        document.getElementById("3apple").innerHTML = 5;
+        document.getElementById("2cherry").innerHTML = 5;
+        document.getElementById("3cherry").innerHTML = 8;
+        document.getElementById("2watermelon").innerHTML = 8;
+        document.getElementById("3watermelon").innerHTML = 10;
     }
 }
 
@@ -164,9 +174,8 @@ function checkWin() {
 
     if (slot1 == slot2 && slot2 == slot3) {
         let fileName = slot1.split('/').pop();
-        console.log("voitto");
+        console.log("voitto3");
         switch (fileName) {
-
             case "img/apple.png":
                 if (bet == 0.50) {
                     money = money + 2;
@@ -207,7 +216,7 @@ function checkWin() {
 
     if (slot1 == slot2 && slot2 != slot3) {
         let fileName = slot1.split('/').pop();
-        console.log("voitto");
+        console.log("voitto2");
         switch (fileName) {
 
             case "img/apple.png":
@@ -246,25 +255,7 @@ function checkWin() {
                 }
                 break;
         }
-    }
-
-    if (slot1 != slot2 && slot2 != slot3) {
-        let fileName = slot1.split('/').pop();
-        console.log("voitto");
-        switch (fileName) {
-
-            case "img/watermelon.png":
-                if (bet == 0.50) {
-                    money = money + 1;
-                }
-                else if (bet == 1) {
-                    money = money + 2;
-                }
-                else {
-                    money = money + 3;
-                }
-                break;
-
-        }
+        win.style.display = "block";
+        document.getElementById("moneyText").innerHTML = money
     }
 }

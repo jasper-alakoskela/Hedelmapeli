@@ -49,13 +49,9 @@ h1 {
     display: inline;
     padding: 20px;
     position: relative;
-    left: 325px;
+    left: 315px;
 }
 
-.locking img{
-    height: 80px;
-    width: 80px;
-}
 
 .prizes {
     margin-right: 300px;
