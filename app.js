@@ -134,6 +134,7 @@ function chooseBet(x) {
     if (x == 0.50) {
         document.getElementById("betText").innerHTML = 0.50;
 
+
         document.getElementById("2apple").innerHTML = 1;
         document.getElementById("3apple").innerHTML = 2;
         document.getElementById("2cherry").innerHTML = 2;
@@ -174,9 +175,8 @@ function checkWin() {
 
     if (slot1 == slot2 && slot2 == slot3) {
         let fileName = slot1.split('/').pop();
-        console.log("voitto3");
         switch (fileName) {
-            case "img/apple.png":
+            case "apple.png":
                 if (bet == 0.50) {
                     money = money + 2;
                 }
@@ -188,7 +188,7 @@ function checkWin() {
                 }
                 break;
 
-            case "img/cherry.png":
+            case "cherry.png":
                 if (bet == 0.50) {
                     money = money + 3;
                 }
@@ -200,7 +200,7 @@ function checkWin() {
                 }
                 break;
 
-            case "img/watermelon.png":
+            case "watermelon.png":
                 if (bet == 0.50) {
                     money = money + 5;
                 }
@@ -216,10 +216,9 @@ function checkWin() {
 
     if (slot1 == slot2 && slot2 != slot3) {
         let fileName = slot1.split('/').pop();
-        console.log("voitto2");
         switch (fileName) {
 
-            case "img/apple.png":
+            case "apple.png":
                 if (bet == 0.50) {
                     money = money + 1;
                 }
@@ -231,7 +230,7 @@ function checkWin() {
                 }
                 break;
 
-            case "img/cherry.png":
+            case "cherry.png":
                 if (bet == 0.50) {
                     money = money + 2;
                 }
@@ -243,7 +242,7 @@ function checkWin() {
                 }
                 break;
 
-            case "img/watermelon.png":
+            case "watermelon.png":
                 if (bet == 0.50) {
                     money = money + 3;
                 }
