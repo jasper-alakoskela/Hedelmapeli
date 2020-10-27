@@ -7,17 +7,15 @@ let lock1 = false;
 let lock2 = false;
 let lock3 = false;
 
-let win = document.getElementsByClassName("win");
-
-win.onclick = function () {
-    win.style.display = "none";
+function playagain() {
+    location.reload();
 }
 
 function spin() {
     if (bet > money) {
-        win.style.display = "block";
-        document.getElementsByClassName("win").innerHTML = document.getElementsByClassName("lose");
+        alert("Rahat loppuivat")
         document.getElementById("playbtn").disabled = true;
+        document.getElementById("playagainbtn").style.display = "block";
         console.log("game over");
     }
 
@@ -135,9 +133,9 @@ function chooseBet(x) {
         document.getElementById("betText").innerHTML = 0.50;
 
 
-        document.getElementById("2apple").innerHTML = 1;
-        document.getElementById("3apple").innerHTML = 2;
-        document.getElementById("2cherry").innerHTML = 2;
+        document.getElementById("2apple").innerHTML = 0.50;
+        document.getElementById("3apple").innerHTML = 1;
+        document.getElementById("2cherry").innerHTML = 1;
         document.getElementById("3cherry").innerHTML = 3;
         document.getElementById("2watermelon").innerHTML = 3;
         document.getElementById("3watermelon").innerHTML = 5;
@@ -146,22 +144,22 @@ function chooseBet(x) {
     else if (x == 1) {
         document.getElementById("betText").innerHTML = 1;
 
-        document.getElementById("2apple").innerHTML = 2;
-        document.getElementById("3apple").innerHTML = 3;
-        document.getElementById("2cherry").innerHTML = 3;
-        document.getElementById("3cherry").innerHTML = 5;
-        document.getElementById("2watermelon").innerHTML = 5;
+        document.getElementById("2apple").innerHTML = 1;
+        document.getElementById("3apple").innerHTML = 2;
+        document.getElementById("2cherry").innerHTML = 2;
+        document.getElementById("3cherry").innerHTML = 4;
+        document.getElementById("2watermelon").innerHTML = 4;
         document.getElementById("3watermelon").innerHTML = 8;
     }
 
     else {
         document.getElementById("betText").innerHTML = 2;
 
-        document.getElementById("2apple").innerHTML = 3;
-        document.getElementById("3apple").innerHTML = 5;
-        document.getElementById("2cherry").innerHTML = 5;
-        document.getElementById("3cherry").innerHTML = 8;
-        document.getElementById("2watermelon").innerHTML = 8;
+        document.getElementById("2apple").innerHTML = 2;
+        document.getElementById("3apple").innerHTML = 3;
+        document.getElementById("2cherry").innerHTML = 3;
+        document.getElementById("3cherry").innerHTML = 5;
+        document.getElementById("2watermelon").innerHTML = 5;
         document.getElementById("3watermelon").innerHTML = 10;
     }
 }
@@ -178,13 +176,13 @@ function checkWin() {
         switch (fileName) {
             case "apple.png":
                 if (bet == 0.50) {
-                    money = money + 2;
+                    money = money + 1;
                 }
                 else if (bet == 1) {
-                    money = money + 3;
+                    money = money + 2;
                 }
                 else {
-                    money = money + 4;
+                    money = money + 3;
                 }
                 break;
 
@@ -193,10 +191,10 @@ function checkWin() {
                     money = money + 3;
                 }
                 else if (bet == 1) {
-                    money = money + 5;
+                    money = money + 4;
                 }
                 else {
-                    money = money + 8;
+                    money = money + 5;
                 }
                 break;
 
@@ -212,6 +210,8 @@ function checkWin() {
                 }
                 break;
         }
+        document.getElementById("moneyText").innerHTML = money
+        document.title = money + "€";
     }
 
     if (slot1 == slot2 && slot2 != slot3) {
@@ -219,6 +219,18 @@ function checkWin() {
         switch (fileName) {
 
             case "apple.png":
+                if (bet == 0.50) {
+                    money = money + 0.50;
+                }
+                else if (bet == 1) {
+                    money = money + 1;
+                }
+                else {
+                    money = money + 2;
+                }
+                break;
+
+            case "cherry.png":
                 if (bet == 0.50) {
                     money = money + 1;
                 }
@@ -230,31 +242,19 @@ function checkWin() {
                 }
                 break;
 
-            case "cherry.png":
-                if (bet == 0.50) {
-                    money = money + 2;
-                }
-                else if (bet == 1) {
-                    money = money + 3;
-                }
-                else {
-                    money = money + 4;
-                }
-                break;
-
             case "watermelon.png":
                 if (bet == 0.50) {
                     money = money + 3;
                 }
                 else if (bet == 1) {
-                    money = money + 5;
+                    money = money + 4;
                 }
                 else {
-                    money = money + 8;
+                    money = money + 5;
                 }
                 break;
         }
-        win.style.display = "block";
         document.getElementById("moneyText").innerHTML = money
+        document.title = money + "€";
     }
 }
